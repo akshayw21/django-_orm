@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%extends 'base.html'%}
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='{%static "css/bootstrap.css"%}' rel='stylesheet'>
+    <link href='{%static "js/bbmin.js"%}' rel='javascript'>
+</head>
+<body>
+    {%block data%}
+    <form>
+    <table class='table'>
+        <tr>
+            <th>ID</th>
+            <th>Salary</th>
+            <th>Month</th>
+            <th>EmpName</th>
+            <th>EmpEmail</th>
+            <th>EmpContact</th>
+            <th>Description</th>
+            <th collspan='3'>Action</th>
+        </tr>
+        {%for a in acclist%}
+        <tr>
+            <td>{{a.id}}</td>
+            <td>{{a.salary}}</td>
+            <td>{{a.month}}</td>
+            <td>{{a.emp.name}}</td>
+            <td>{{a.emp.email}}</td>
+            <td>{{a.emp.contact}}</td>
+            <td>{{a.description}}</td>
+            <td><a href='deleteAcc?id={{a.id}}'>Delete 1</a></td>
+            <td><a href='editAcc'>Edit </a></td>
+            <td><a href='deleteAcc/{{a.id}}'>Delete 2</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+</form>
+{%endblock%}
+</body>
+</html>
